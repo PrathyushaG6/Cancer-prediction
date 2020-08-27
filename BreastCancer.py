@@ -26,7 +26,7 @@ Y = data.iloc[:, 11]
 # In[28]:
 
 
-#fin missing values,if any
+#find missing values,if any
 data.isnull()
 
 
@@ -46,22 +46,6 @@ for col in data.columns:
 
 
 # In[32]:
-
-
-num_rows = len(data.index)
-low_information_cols = [] 
-
-for col in data.columns:
-    cnts = data[col].value_counts(dropna=False)
-    top_pct = (cnts/num_rows).iloc[0]
-    
-    if top_pct > 0.95:
-        low_information_cols.append(col)
-        print('{0}: {1:.5f}%'.format(col, top_pct*100))
-        print(cnts)
-        print()
-
-
 # In[34]:
 
 
